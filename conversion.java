@@ -9,16 +9,7 @@ import java.util.*;
 public class conversion
 {
 
-public static void  printMenu()
-{
-   System.out.println("\nHello, what kind of units would you like to convert?");
-   System.out.println("1-Temperature");
-   System.out.println("2-Distance");
-   System.out.println("3-Volume");
-   System.out.println("4-Mass");
-   System.out.println("q-Quit");
-}
-
+   
 /** *****************************************************
  *  Conversion methods below
  *  14 methods, 2 for each pair of units
@@ -356,6 +347,7 @@ public static void distanceMenu(){
    }
 }
 
+
 public static void volumeMenu(){
    System.out.println("1-Gallons to Liters");
    System.out.println("2-Liters to Gallons");
@@ -439,6 +431,17 @@ public static void massMenu(){
          }
    }
 }
+
+public static void  printMenu()
+{
+   System.out.println("\nHello, what kind of units would you like to convert?");
+   System.out.println("1-Temperature");
+   System.out.println("2-Distance");
+   System.out.println("3-Volume");
+   System.out.println("4-Mass");
+   System.out.println("q-Quit");
+}
+
 
 public static void main (String[] args){
    boolean quitFlag=false;
