@@ -127,6 +127,17 @@ private static float convertK2Lb (String inputVal)
    return convert(inputVal,cF);  
 }
 
+private static float convertMPH2KPH(String inputVal)
+{
+   Converter cF = (num)->((float) (num * 1.6093));
+   return convert(inputVal,cF);  
+}
+
+private static float convertKPH2MPH(String inputVal){
+   Converter cF = (num)->((float) (num / 1.6093));
+   return convert(inputVal,cF);  
+}
+
 public static String getInput(){
    Scanner sc = new Scanner(System.in);
    return (sc.nextLine());
@@ -268,6 +279,39 @@ public static void volumeMenu(){
    }
 }
 
+public static void speedMenu(){
+   System.out.println("1-Miles per hour to Kilometers per hour");
+   System.out.println("2-Kilometers per hour to Miles per hour");
+   System.out.println("q-Quit");
+   boolean quitFlag=false;
+   String input = "";
+
+   while (!quitFlag){
+      input = getInput();
+      switch(input){
+         case "1":
+            System.out.println("Enter an MPH value to be converted to KPH");
+            input=getInput();
+            System.out.println(input+" MPH = "+convertMPH2KPH(input)+" KPH");
+            quitFlag=true;
+            break;
+         case "2":
+            System.out.println("Enter a KPH value to be converted to MPH");
+            input=getInput();
+            System.out.println(input+" KPH = "+convertKPH2MPH(input)+" MPH");
+            quitFlag=true;
+            break;
+         case "q":
+            quitFlag=true;
+            break;
+         default:
+            System.out.println("Invalid command entered");
+            System.out.println("1-Gallons to Liters");
+            System.out.println("2-Liters to Gallons");
+            System.out.println("q-Quit");
+         }
+   }
+}
 public static void massMenu(){
    System.out.println("1-Ounces to Grams");
    System.out.println("2-Grams to Ounces");
@@ -325,6 +369,7 @@ public static void  printMenu()
    System.out.println("2-Distance");
    System.out.println("3-Volume");
    System.out.println("4-Mass");
+   System.out.println("5-Speed");
    System.out.println("q-Quit");
 }
 
@@ -347,6 +392,9 @@ public static void main (String[] args){
             break;
          case "4":
             massMenu();
+            break;
+         case "5":
+            speedMenu();
             break;
          case "q":
             quitFlag=true;
