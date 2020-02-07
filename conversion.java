@@ -9,6 +9,11 @@ import java.util.*;
 public class conversion
 {
 
+@FunctionalInterface
+interface Converter{
+   public float convertFunction(float num);
+} 
+
 private static float myRound(float inFloat){
    int n;
    n = Math.round(inFloat * (float)100.0);
@@ -21,224 +26,105 @@ private static float castAndRound(String inString){
    return myRound(num1);
 }
 
+public static float convert(String inString,Converter cf){
+   float num1,num2;
+   num1=castAndRound(inString);
+   num2=cf.convertFunction(num1);
+   return myRound(num2);
+}
+
 /** *****************************************************
  *  Conversion methods below
  *  14 methods, 2 for each pair of units
 ********************************************************* */
 private static float convertF2C (String inputVal)
 {  // Convert farenheit to celsius
-   float num1, num2; 
-
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-
-   // Convert
-   num2 = (float) ( ( (num1-32.0) * 5.0) / 9.0);
-
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return (num2);
+   Converter cF = (num)->((float) ( ( (num-32.0) * 5.0) / 9.0));
+   return convert(inputVal,cF);
 }
 
 private static float convertC2F (String inputVal)
 {  // Convert celsius to farenheit
-   float num1, num2; 
-
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-
-   // Convert
-   num2 = (float) ( (num1 * 9.0 / 5.0) + 32.0);
-   
-   // Back to 2 digits
-   num2 =myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) ( (num * 9.0 / 5.0) + 32.0));
+   return convert(inputVal,cF);
 }
 
 // small distance
 private static float convertIn2Cm (String inputVal)
 {  // Convert inches to centimeters
-   float num1, num2; 
-
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 2.54);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 2.54));
+   return convert(inputVal,cF);   
 }
 
 private static float convertCm2In (String inputVal)
 {  // Convert centimeters to inches
-   float num1, num2; 
-   
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 0.3937);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 0.3937));
+   return convert(inputVal,cF);     
 }
 
 // medium distance
 private static float convertF2M (String inputVal)
 {  // Convert feet to meters
-   float num1, num2; 
-
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 0.3048);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 0.3048));
+   return convert(inputVal,cF);  
 }
 
 private static float convertM2F (String inputVal)
 {  // Convert meters to feet
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 / 0.3048);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num / 0.3048));
+   return convert(inputVal,cF);  
 }
 
 // large distance
 private static float convertM2K (String inputVal)
 {  // Convert miles to kilometers
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 1.609);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 1.609));
+   return convert(inputVal,cF);  
 }
 
 private static float convertK2M (String inputVal)
 {  // Convert kilometers to miles
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 0.6214);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 0.6214));
+   return convert(inputVal,cF);  
 }
 
 // volume
 private static float convertG2L (String inputVal)
 {  // Convert gallons to liters
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 3.785);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 3.785));
+   return convert(inputVal,cF);  
 }
 
 private static float convertL2G (String inputVal)
 {  // Convert liters to gallons
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 / 3.785);
-   
-   //TODO: Why doesnt this method convert back 
-   
-   return(num2);
+   Converter cF = (num)->((float) (num / 3.785));
+   return convert(inputVal,cF);  
 }
 
 // small weight
 private static float convertOz2G (String inputVal)
 {  // Convert ounces to grams
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 28.35);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 28.35));
+   return convert(inputVal,cF);  
 }
 
 private static float convertG2Oz (String inputVal)
 {  // Convert grams to ounces
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 / 28.35);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num / 28.35));
+   return convert(inputVal,cF);  
 }
 
 // medium weight
 private static float convertLb2K (String inputVal)
 {  // Convert pounds to kilograms
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 0.4536);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 0.4536));
+   return convert(inputVal,cF);  
 }
 
 private static float convertK2Lb (String inputVal)
 {  // Convert kilograms to pounds
-   float num1, num2; 
-    
-   // Round to 2 digits past decimal
-   num1 = castAndRound(inputVal);
-   
-   // Convert
-   num2 = (float) (num1 * 2.205);
-   
-   // Back to 2 digits
-   num2 = myRound(num2);
-   return(num2);
+   Converter cF = (num)->((float) (num * 2.205));
+   return convert(inputVal,cF);  
 }
 
 public static String getInput(){
