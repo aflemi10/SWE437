@@ -12,25 +12,38 @@ public class conversion
 @FunctionalInterface
 interface Converter{
    public float convertFunction(float num);
-} 
-
-private static float myRound(float inFloat){
-   int n;
-   n = Math.round(inFloat * (float)100.0);
-   return (float) (n / (float)100.0);
 }
-   
-private static float castAndRound(String inString){
+
+private static float myRound(float inFloat, int roundTo){
+   int n;
+   n = Math.round(inFloat * (float)Math.pow(10,roundTo));
+   return (float) (n / (float)Math.pow(10,roundTo));
+}
+
+private static float castAndRound(String inString, int roundTo){
    float num1;
    num1 = (Float.valueOf(inString).floatValue());
-   return myRound(num1);
+   return myRound(num1, roundTo);
 }
 
 public static float convert(String inString,Converter cf){
+   int roundTo = getRoundTo();
    float num1,num2;
-   num1=castAndRound(inString);
+   num1=castAndRound(inString, roundTo);
    num2=cf.convertFunction(num1);
-   return myRound(num2);
+   return myRound(num2, roundTo);
+}
+
+public static int getRoundTo(){
+  int roundTo = -1;
+  while((roundTo < 0) || (roundTo > 4)){
+   System.out.print("Round to how many decimal places? (0-4)\n-> ");
+   roundTo = Integer.parseInt(getInput());
+   if((roundTo < 0) || (roundTo > 4)){
+     System.out.print("Can only round to decimal places 0-4. Try again\n");
+   }
+  }
+  return roundTo;
 }
 
 /** *****************************************************
@@ -53,89 +66,89 @@ private static float convertC2F (String inputVal)
 private static float convertIn2Cm (String inputVal)
 {  // Convert inches to centimeters
    Converter cF = (num)->((float) (num * 2.54));
-   return convert(inputVal,cF);   
+   return convert(inputVal,cF);
 }
 
 private static float convertCm2In (String inputVal)
 {  // Convert centimeters to inches
    Converter cF = (num)->((float) (num * 0.3937));
-   return convert(inputVal,cF);     
+   return convert(inputVal,cF);
 }
 
 // medium distance
 private static float convertF2M (String inputVal)
 {  // Convert feet to meters
    Converter cF = (num)->((float) (num * 0.3048));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 private static float convertM2F (String inputVal)
 {  // Convert meters to feet
    Converter cF = (num)->((float) (num / 0.3048));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 // large distance
 private static float convertM2K (String inputVal)
 {  // Convert miles to kilometers
    Converter cF = (num)->((float) (num * 1.609));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 private static float convertK2M (String inputVal)
 {  // Convert kilometers to miles
    Converter cF = (num)->((float) (num * 0.6214));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 // volume
 private static float convertG2L (String inputVal)
 {  // Convert gallons to liters
    Converter cF = (num)->((float) (num * 3.785));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 private static float convertL2G (String inputVal)
 {  // Convert liters to gallons
    Converter cF = (num)->((float) (num / 3.785));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 // small weight
 private static float convertOz2G (String inputVal)
 {  // Convert ounces to grams
    Converter cF = (num)->((float) (num * 28.35));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 private static float convertG2Oz (String inputVal)
 {  // Convert grams to ounces
    Converter cF = (num)->((float) (num / 28.35));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 // medium weight
 private static float convertLb2K (String inputVal)
 {  // Convert pounds to kilograms
    Converter cF = (num)->((float) (num * 0.4536));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 private static float convertK2Lb (String inputVal)
 {  // Convert kilograms to pounds
    Converter cF = (num)->((float) (num * 2.205));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 private static float convertMPH2KPH(String inputVal)
 {
    Converter cF = (num)->((float) (num * 1.6093));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 private static float convertKPH2MPH(String inputVal){
    Converter cF = (num)->((float) (num / 1.6093));
-   return convert(inputVal,cF);  
+   return convert(inputVal,cF);
 }
 
 public static String getInput(){
@@ -406,4 +419,3 @@ public static void main (String[] args){
    }
 }
 }
-
