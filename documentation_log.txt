@@ -1,0 +1,20 @@
+Authors: Allen Fleming && Jordan Brown && Joseph Seiler
+Assignment: HW2 
+Class: SWE 437
+
+
+Documentation Log
+- moved print menu down to logically make more sense 
+- added myRound method to round floating point numbers
+- added castAndRound method to convet strings to floats
+- changed name of conversion method arguments to be inputVal
+- Fixed meters to feet formula
+- changed rounding inside of individual conversion method
+  to be passed to a static rounding method
+- refactored above change to use lambdas 
+- added functional interface to have the conversion 
+  class support lambda functions
+- added speed conversion method, following same lambda function
+  style
+- added getRoundTo method
+- modified myRound to support user choice of decimal precision
