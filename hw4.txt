@@ -1,0 +1,33 @@
+Jordan Brown && Allen Fleming && Joseph Seiler
+Prof. Offut
+SWE 437-001
+HW3
+
+Describe the flaw in terms of the RIPR model.
+Be as precise, specific, and concise as you can.
+For full credit, you must use the terminology in the book.
+2a.
+  The flaw in this test method is that it only checks the
+  first prime number of a list of prime numbers for correctness.
+  This means that the rest of the list could be filled with
+  non-primes and the test would not reveal this.
+  R- The fault can be reached any time computePrimes() is called
+     on all numbers greater than 1.
+  I- The execution of this fault will lead to a list of potentially
+     non prime numbers.
+  P- The infected state will propagate to whatever code block that
+     needs a list of n prime numbers and will give the executing code
+     block a list of non prime numbers.
+  R- This test will not reveal the primality of rest of the integers
+     in the list.
+
+
+Rewrite the test method to correct the flaw.
+2b.
+@Test
+public void testComputePrimes()
+{
+   p.computePrimes(5); // Compute the first 5 prime numbers
+   String test = "[2,3,5,7,11]"
+   assertTrue("computePrimes failed", p.getFirstPrime().toString().equals(test));
+}
