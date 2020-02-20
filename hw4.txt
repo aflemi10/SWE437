@@ -1,7 +1,7 @@
-Jordan Brown && Allen Fleming && Joseph Seiler
+Allen Fleming && Jordan Brown && Joseph Seiler
 Prof. Offut
 SWE 437-001
-HW3
+02/19/2020
 
 Describe the flaw in terms of the RIPR model.
 Be as precise, specific, and concise as you can.
