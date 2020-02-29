@@ -1,7 +1,11 @@
 /* SWE437 Junit Test
+ * 
  * Jordan Brown
  * Allen Fleming
  * Joseph Seiler
+ * 
+ *  The input domain and the Observability and Controllability assessments are in the Part1.docx
+ *  file on GitHub.
  */
 
 
