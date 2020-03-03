@@ -152,6 +152,16 @@ public class conversion
       return convert(inputVal,cF,roundTo);
    }
 
+   public static float convertMPG2KPL(String inputVal, int roundTo){
+      Converter cF = (num)->((float) (num * 0.425144));
+      return convert(inputVal,cF,roundTo);
+   }
+
+   public static float convertKPL2MPG(String inputVal, int roundTo){
+      Converter cF = (num)->((float) (num / 0.425144));
+      return convert(inputVal,cF,roundTo);
+   }
+
    public static String getInput(){
       Scanner sc = new Scanner(System.in);
       return (sc.nextLine());
@@ -327,6 +337,41 @@ public class conversion
       }
    }
 
+   public static void fuelEfficiencyMenu(int roundVal){
+      System.out.println("1-Miles Per Gallon to Kilometers Per Liter");
+      System.out.println("2-Kilometers Per Liter to Miles Per Gallon");
+      System.out.println("q-Quit");
+      boolean quitFlag=false;
+      String input = "";
+
+      while (!quitFlag){
+         input = getInput();
+         switch(input){
+            case "1":
+               System.out.println("Enter a Miles per Gallon value to be converted to Kilometers Per Liter");
+               input=getInput();
+               System.out.println(input+" Miles per Gallon = "+convertMPG2KPL(input,roundVal)+" Kilometers Per Liter");
+               quitFlag=true;
+               break;
+            case "2":
+               System.out.println("Enter a Kilometers Per Liter value to be converted to Miles Per Gallon");
+               input=getInput();
+               System.out.println(input+" Kilometers Per Liter = "+convertKPL2MPG(input,roundVal)+" Miles Per Gallon");
+               quitFlag=true;
+               break;
+            case "q":
+               quitFlag=true;
+               break;
+            default:
+               System.out.println("Invalid command entered");
+               System.out.println("1-Miles Per Gallon to Kilometers Per Liter");
+               System.out.println("2-Kilometers Per Liter to Miles Per Gallon");
+               System.out.println("q-Quit");
+         }
+      }
+
+   }
+
    public static void massMenu(int roundVal){
       System.out.println("1-Ounces to Grams");
       System.out.println("2-Grams to Ounces");
@@ -385,7 +430,8 @@ public class conversion
       System.out.println("3-Volume");
       System.out.println("4-Mass");
       System.out.println("5-Speed");
-      System.out.println("6-Change how many decimal places to round to.");
+      System.out.println("6-Fuel Efficiency");
+      System.out.println("7-Change how many decimal places to round to.");
       System.out.println("q-Quit");
    }
 
@@ -414,6 +460,9 @@ public class conversion
                speedMenu(roundVal);
                break;
             case "6":
+               fuelEfficiencyMenu(roundVal);
+               break;
+            case "7":
                roundVal=getRoundTo();
                break;
             case "q":
