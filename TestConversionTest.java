@@ -14,14 +14,12 @@ import org.junit.Test;
 
 public class TestConversionTest {
 
-	
 	@Test
 	public void roundingTest() {
 		
 		assertEquals(12.2568,conversion.myRound((float)12.256789, 4),0.00001);
 	}
-	
-	
+
 	@Test
 	public void testFahrenAndCelcius() {
 		float num1, num2;
@@ -95,7 +93,4 @@ public class TestConversionTest {
 		
 		assertEquals(num1, conversion.convertKPH2MPH(String.valueOf(num2),4),0.00001);
 	}
-	
-
-
 }

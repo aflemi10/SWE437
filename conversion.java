@@ -66,7 +66,7 @@ public class conversion
    // small distance
    public static float convertIn2Cm (String inputVal, int roundTo)
    {  // Convert inches to centimeters
-      Converter cF = (num)->((float) (num * 2.54));
+      Converter cF = (num)->((float) (num /0.3937));
       return convert(inputVal,cF,roundTo);
    }
 
@@ -92,7 +92,7 @@ public class conversion
    // large distance
    public static float convertM2K (String inputVal, int roundTo)
    {  // Convert miles to kilometers
-      Converter cF = (num)->((float) (num * 1.609));
+      Converter cF = (num)->((float) (num / 0.6214));
       return convert(inputVal,cF,roundTo);
    }
 
@@ -131,13 +131,13 @@ public class conversion
    // medium weight
    public static float convertLb2K (String inputVal, int roundTo)
    {  // Convert pounds to kilograms
-      Converter cF = (num)->((float) (num * 0.4536));
+      Converter cF = (num)->((float) (num * 0.453592));
       return convert(inputVal,cF,roundTo);
    }
 
    public static float convertK2Lb (String inputVal, int roundTo)
    {  // Convert kilograms to pounds
-      Converter cF = (num)->((float) (num * 2.205));
+      Converter cF = (num)->((float) (num / 0.453592));
       return convert(inputVal,cF,roundTo);
    }
 
