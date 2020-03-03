@@ -162,6 +162,18 @@ public class conversion
       return convert(inputVal,cF,roundTo);
    }
 
+   public static float convertK2C(String inputVal, int roundTo){
+      Converter cF = (num)->((float) (num / 0.425144));
+      return convert(inputVal,cF,roundTo);
+   }
+
+   public static float convertC2K(String inputVal, int roundTo){
+      Converter cF = (num)->((float) (num / 0.425144));
+      return convert(inputVal,cF,roundTo);
+   }
+
+
+
    public static String getInput(){
       Scanner sc = new Scanner(System.in);
       return (sc.nextLine());
@@ -170,6 +182,8 @@ public class conversion
    public static void tempMenu(int roundVal){
       System.out.println("1-Farenheit to Celsius");
       System.out.println("2-Celsius to Farenheit");
+      System.out.println("3-Kelvin to Celsius");
+      System.out.println("4-Celsius to Kelvin");
       System.out.println("q-Quit");
       boolean quitFlag=false;
       String input = "";
@@ -189,6 +203,18 @@ public class conversion
                System.out.println(input+" Celsius = "+convertC2F(input,roundVal)+" Farenheit");
                quitFlag=true;
                break;
+            case"3":
+               System.out.println("Enter a Kelvin value to be converted to Celsius");
+               input=getInput();
+               System.out.println(input+" Kelvin = "+convertK2C(input,roundVal)+" Celsius");
+               quitFlag=true;
+               break;
+            case "4":
+               System.out.println("Enter a Celsius value to be converted to Kelvin");
+               input=getInput();
+               System.out.println(input+" Celsius = "+convertC2K(input,roundVal)+" Kelvin");
+               quitFlag=true;
+               break;
             case "q":
                quitFlag=true;
                break;
@@ -196,6 +222,8 @@ public class conversion
                System.out.println("Invalid command entered");
                System.out.println("1-Farenheit to Celsius");
                System.out.println("2-Celsius to Farenheit");
+               System.out.println("3-Kelvin to Celsius");
+               System.out.println("4-Celsius to Kelvin");
                System.out.println("q-Quit");
             }
       }

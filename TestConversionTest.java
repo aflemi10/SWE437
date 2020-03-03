@@ -102,4 +102,14 @@ public class TestConversionTest {
 
 		assertEquals(num1, conversion.convertKPH2MPH(String.valueOf(num2),4),0.00001);
 	}
+
+	@Test
+	public void testKelvinAndCelsius(){
+		float num1, num2;
+		num1 = (float)95;
+		num2 = conversion.convertK2C("95",4);
+
+		assertEquals(num1, conversion.convertKPH2MPH(String.valueOf(num2),4),0.00001);
+	}
+
 }
