@@ -111,5 +111,13 @@ public class TestConversionTest {
 
 		assertEquals(num1, conversion.convertKPH2MPH(String.valueOf(num2),4),0.00001);
 	}
+	
+	@Test
+	/* Test passes for multiple values tested */
+	public void testGetRoundValFromUser() {
+		int roundVal = conversion.getRoundTo();
+		
+		assertEquals(-16.111, conversion.convertF2C("3", roundVal),0.00001);
+	}
 
 }
