@@ -163,16 +163,14 @@ public class conversion
    }
 
    public static float convertK2C(String inputVal, int roundTo){
-      Converter cF = (num)->((float) (num / 0.425144));
+      Converter cF = (num)->((float) (num -273.1500));
       return convert(inputVal,cF,roundTo);
    }
 
    public static float convertC2K(String inputVal, int roundTo){
-      Converter cF = (num)->((float) (num / 0.425144));
+      Converter cF = (num)->((float) (num +273.1500 ));
       return convert(inputVal,cF,roundTo);
    }
-
-
 
    public static String getInput(){
       Scanner sc = new Scanner(System.in);
