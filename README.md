@@ -8,3 +8,5 @@
 [HW8 Link](https://docs.google.com/document/d/1y_Xm9yF3pLUq_SSjwDzFH8mBSZW-GQOhOf5KdxbyyHw/edit?usp=sharing)
 
 [hw 9](https://docs.google.com/document/d/1fLdFbEdBLaE2uf2TtcYKpggXPxNi0iS6hdTLjEgr5Jw/edit?usp=sharing)
+
+[hw 10](https://docs.google.com/document/d/1qs_EllQz_BdxKxPDt6PVO3mNrfBmEVzbHVE4XnEd6Ow/edit?usp=sharing)
