@@ -125,12 +125,12 @@ public class ThermostatTest
 	      settings.setSetting (Period.MORNING, DayType.WEEKDAY, 69);
 	      thermo.setPeriod (Period.MORNING);
 	      thermo.setDay (DayType.WEEKDAY);
-	      // Clause a: curTemp < dTemp - thresholdDiff : true
+	     
 	      thermo.setCurrentTemp (63);
 	      thermo.setThresholdDiff (5);
-	      // Clause c: curTemp < overTemp - thresholdDiff : true
+	  
 	      thermo.setOverTemp (70);
-	      // Clause d: timeSinceLastRun.greaterThan (minLag) : true
+	    
 	      thermo.setMinLag (10);
 	      thermo.setTimeSinceLastRun (12);
 	      
@@ -155,12 +155,12 @@ public class ThermostatTest
 		      settings.setSetting (Period.MORNING, DayType.WEEKDAY, 69);
 		      thermo.setPeriod (Period.MORNING);
 		      thermo.setDay (DayType.WEEKDAY);
-		      // Clause a: curTemp < dTemp - thresholdDiff : true
+		   
 		      thermo.setCurrentTemp (63);
 		      thermo.setThresholdDiff (5);
-		      // Clause c: curTemp < overTemp - thresholdDiff : true
+		   
 		      thermo.setOverTemp (70);
-		      // Clause d: timeSinceLastRun.greaterThan (minLag) : true
+		
 		      thermo.setMinLag (10);
 		      thermo.setTimeSinceLastRun (12);
 		      
